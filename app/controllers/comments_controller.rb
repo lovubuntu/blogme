@@ -3,24 +3,29 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   # GET bloggers/1/comments
+  # GET bloggers/1/comments.json
   def index
     @comments = @blogger.comments
   end
 
   # GET bloggers/1/comments/1
+  # GET bloggers/1/comments/1.json
   def show
   end
 
   # GET bloggers/1/comments/new
+  # GET bloggers/1/comments/new.json
   def new
     @comment = @blogger.comments.build
   end
 
   # GET bloggers/1/comments/1/edit
+  # GET bloggers/1/comments/1/edit.json
   def edit
   end
 
   # POST bloggers/1/comments
+  # POST bloggers/1/comments.json
   def create
     @comment = @blogger.comments.build(comment_params)
 
@@ -32,6 +37,7 @@ class CommentsController < ApplicationController
   end
 
   # PUT bloggers/1/comments/1
+  # PUT bloggers/1/comments/1.json
   def update
     if @comment.update_attributes(comment_params)
       redirect_to([@comment.blogger, @comment], notice: 'Comment was successfully updated.')
@@ -41,6 +47,7 @@ class CommentsController < ApplicationController
   end
 
   # DELETE bloggers/1/comments/1
+  # DELETE bloggers/1/comments/1.json
   def destroy
     @comment.destroy
 
